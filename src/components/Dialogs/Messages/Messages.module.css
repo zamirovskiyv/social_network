@@ -1,0 +1,32 @@
+.dialogs{
+    display: grid;
+    grid-template-columns: 2fr 10fr;
+}
+
+.dialogsItem{
+    padding: 10px;
+}
+
+.messages{
+    padding: 10px;
+}
+
+.inMessage{
+    background-color: #e8eaea;
+    border-radius: 10px;
+    padding-left: 10px;
+    justify-self: left;
+    display: grid;
+    width: 50%;
+    margin: 5px;
+}
+
+.outMessage{
+    background-color: #e8eaea;
+    border-radius: 10px;
+    justify-self: right;
+    padding-left: 10px;
+    display: grid;
+    width: 50%;
+    margin:5px;
+}

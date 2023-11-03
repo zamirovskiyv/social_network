@@ -1,0 +1,16 @@
+.dialog{
+    padding: 10px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+}
+
+.no_hover {
+    pointer-events: none; /* Отключение событий мыши */
+}
+
+.avatar {
+    width: 30px;
+    height: 30px;
+    border-radius: 15px;
+}
