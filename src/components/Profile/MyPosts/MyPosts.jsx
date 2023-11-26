@@ -1,19 +1,20 @@
-// import '../../../../css/App.css';
 import s from './MyPosts.module.css'
 import Posts from "./Post/Posts";
 import {createRef} from "react";
+import {addPostActiveCreator, onPostChangeActiveCreator} from "../../../state/state";
 
 
 const MyPosts = (props) => {
     const newPostElement = createRef()
 
     const addPost = () => {
-        props.addPost()
+        props.dispatch(addPostActiveCreator())
     }
 
     const onPostChange = () => {
         const text = newPostElement.current.value
-        props.updateNewPostText(text)
+        props.dispatch(onPostChangeActiveCreator(text))
+        // console.log('=== change post: ', text)
     }
 
     return (
@@ -22,7 +23,7 @@ const MyPosts = (props) => {
             <div>
                 <div>
                     <textarea ref={newPostElement}
-                              value={props.newChangePost}
+                              value={props.profilePage.newChangePost}
                               onChange={onPostChange}></textarea>
                 </div>
                 <div>
@@ -32,7 +33,7 @@ const MyPosts = (props) => {
             <div>
                 new post
             </div>
-            {props.postData.map(p => <Posts message={p.message} likesCount={p.likesCount}/>)}
+            {props.profilePage.postData.map(p => <Posts message={p.message} likesCount={p.likesCount}/>)}
         </div>
     )
 }

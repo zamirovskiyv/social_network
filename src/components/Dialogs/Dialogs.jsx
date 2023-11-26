@@ -13,7 +13,8 @@ const Dialogs = (props) => {
             </div>
             <div className={s.messages}>
                 {props.postMessages.map(m => <Messages userMessage={m.message} type={m.type}/>)}
-                <AddNewMessages/>
+                <AddNewMessages
+                    dispatch={props.dispatch}/>
             </div>
 
 

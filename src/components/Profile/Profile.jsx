@@ -1,5 +1,4 @@
 import '../../css/App.css';
-import s from './Profile.module.css'
 import MyPosts from "./MyPosts/MyPosts";
 import ProfileInfo from "./ProfileInfo/ProfileInfo";
 
@@ -7,10 +6,10 @@ const Profile = (props) => {
     return (
         <div>
             <ProfileInfo/>
-            <MyPosts postData={props.profilePage.postData}
-                     newChangePost={props.profilePage.newChangePost}
+            <MyPosts profilePage={props.profilePage}
                      updateNewPostText={props.updateNewPostText}
-                     addPost={props.addPost}/>
+                     dispatch = {props.dispatch}
+            />
         </div>
     )
 }

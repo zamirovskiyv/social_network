@@ -1,21 +1,26 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom/client';
 import './index.css';
-// import App from './App';
 import reportWebVitals from './reportWebVitals';
-import state from "./state/state";
-import {rerenderThree} from "./render";
+import store from "./state/state";
 
-// const root = ReactDOM.createRoot(document.getElementById('root'));
-//
-// root.render(
-//     <React.StrictMode>
-//         <App state={state}
-//              addPost={addPost}/>
-//     </React.StrictMode>
-// );
+import ReactDOM from "react-dom/client";
+import React from "react";
+import App from "./App";
 
-rerenderThree(state)
+const root = ReactDOM.createRoot(document.getElementById('root'));
+
+const rerenderThree = (state) => {
+    root.render(
+        <React.StrictMode>
+            <App state={store.getState()}
+                 dispatch={store.dispatch.bind(store)}
+            />
+        </React.StrictMode>
+    );
+}
+
+rerenderThree(store.getState())
+
+store.subscribe(rerenderThree)
 
 reportWebVitals();
 
